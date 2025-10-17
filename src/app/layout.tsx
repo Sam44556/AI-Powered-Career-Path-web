@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import Navbar from "./components/Navbar";
+import Providers from "./components/Providers";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -21,13 +22,23 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) 
+
+{
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} h-full`}
+    >
+      <body className="h-full">
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
+          {/* Footer */}
+      <footer className="py-6 border-t bg-gradient-to-br from-blue-50 via-white to-blue-100 border-blue-100 text-center text-gray-500">
+        <p>© {new Date().getFullYear()} CareerAI. All rights reserved.</p>
+      </footer>
       </body>
     </html>
   );
