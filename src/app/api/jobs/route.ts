@@ -1,16 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]/route"; // adjust path if needed
+import { authOptions } from "@/app/utils/authOptions"; 
 import prisma from "../../lib/db";
-// ❌ Remove this line: import OpenAI from "openai";
 
-// ✅ Import the GoogleGenAI client and types
 import { GoogleGenAI, Type } from "@google/genai";
 
-// ✅ Initialize the client. It will automatically use GEMINI_API_KEY from process.env
+
 const ai = new GoogleGenAI({});
 
-// Define the expected JSON schema for the response
+
 const jobSchema = {
   type: Type.OBJECT,
   properties: {
