@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 import prisma from "../../lib/db";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]/route";
+import { authOptions } from  "@/app/utils/authOptions";
 import { GoogleGenAI, Type } from "@google/genai";
 
 // ✅ Initialize Gemini AI client
