@@ -18,7 +18,7 @@ export default async function HomePage() {
         </h2>
         <p className="text-lg text-gray-600 max-w-2xl mb-8">
           Get personalized job opportunities, skill growth insights, learning resources,
-          and AI-generated resume support. Let AI guide your career journey 🚀
+          and AI-generated resume support. Let AI guide your career journey.
         </p>
         <a href="/auth/signup" className="px-6 py-3 bg-blue-700 text-white rounded-xl shadow-lg hover:bg-blue-800">
           Get Started

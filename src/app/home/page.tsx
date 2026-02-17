@@ -4,6 +4,12 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function Page() {
+  const features = [
+    { title: "Jobs", desc: "Find curated job opportunities matching your skills.", href: "/jobs" },
+    { title: "Skills & Career", desc: "Learn and grow with personalized skill tracks.", href: "/skills" },
+    { title: "Resume", desc: "Create and manage your professional resume.", href: "/resume" },
+    { title: "Resources", desc: "Access guides, articles, and expert tips.", href: "/resources" },
+  ];
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-white to-blue-100 text-gray-800">
       {/* Hero Section */}
@@ -32,28 +38,22 @@ export default function Page() {
             href="/info"
             className="px-8 py-3 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-xl shadow-lg transition duration-300 transform hover:scale-105"
           >
-            profile
+            Profile
           </Link>
-         
+          
         </div>
       </section>
 
       {/* Features */}
       <section className="py-16 px-6 bg-white/70 backdrop-blur-md">
         <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            { title: "Jobs & Internships", desc: "Find curated job and internship opportunities matching your skills.", href: "/jobs" },
-            { title: "Skills Analysis & Future Skill Suggestion", desc: "Learn and grow with personalized skill tracks and receive personalized recommendations for new skills to learn", href: "/skills" },
-            { title: "Resources", desc: "Access guides, articles, and expert tips.", href: "/resources" },
-            { title: "Resume",desc:"Create a professional, standout resume from scratch with our guided builder to impress employers.",href:"/resume" },
-         
-         ].map((f, i) => (
-            <Link href={f.href} key={i}>
+          {features.map((f, i) => (
+            <Link href={f.href} key={i} className="no-underline">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.2 }}
-                className="p-6 rounded-2xl bg-gradient-to-br from-white to-blue-50 shadow-lg hover:shadow-2xl transition duration-300 h-full cursor-pointer"
+                className="p-6 rounded-2xl bg-gradient-to-br from-white to-blue-50 shadow-lg hover:shadow-2xl transition duration-300 cursor-pointer"
               >
                 <h3 className="text-2xl font-semibold mb-2 text-blue-700">{f.title}</h3>
                 <p className="text-gray-600">{f.desc}</p>
@@ -85,7 +85,7 @@ export default function Page() {
         </div>
       </section>
 
-    
+     
     </div>
   );
 }
